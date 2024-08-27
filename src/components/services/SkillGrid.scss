@@ -1,0 +1,101 @@
+/* src/components/SkillGrid.scss */
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: minmax(200px, auto);
+  grid-gap: 20px;
+  padding: 20px;
+  background: linear-gradient(145deg, #1e1e1e, #0c0c1d); /* Dark gradient background */
+  position: relative; /* For positioning the scroll-to-top button */
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #292945; /* Dark item background */
+  border: 1px solid #0C0C1D; /* Dark border */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  overflow: hidden;
+  position: relative; /* For overlay effect */
+  cursor: pointer; /* Add cursor pointer for better UX */
+  backdrop-filter: blur(10px); /* Blurred effect for background */
+  color: #f5f5f5; /* Light text color */
+  z-index: 1;
+}
+
+.skill-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.skill-item:hover::before {
+  opacity: 1; /* Add overlay effect on hover */
+}
+
+.skill-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+}
+
+.skill-item:active {
+  transform: scale(0.95); /* Slight scale down on click */
+}
+
+.skill-image {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.skill-name {
+  font-size: 16px;
+  color: #f5f5f5; /* Light text color */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Example of different sizes for grid items */
+.skill-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.skill-item.medium {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #2d2d2d;
+  color: #f5f5f5;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: #3a3a3a;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
