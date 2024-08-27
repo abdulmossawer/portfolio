@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   gap: 50px;
+  padding: 10px;
 
   @include mobile {
     width: 100%;
@@ -33,6 +34,7 @@
 
       @include mobile {
         font-size: 36px;
+        line-height: 1.2;
       }
     }
 
@@ -50,9 +52,14 @@
       font-weight: 500;
       cursor: pointer;
       transition: background-color 0.3s;
+      margin: 10px 0; // Add margin for spacing
 
       &:hover {
         background-color: darkorange;
+      }
+
+      @include mobile {
+        padding: 10px 20px;
       }
     }
   }
@@ -62,15 +69,24 @@
     position: relative;
 
     @include mobile {
-      padding: 50px;
+      padding: 20px;
       width: 100%;
     }
 
     .phoneSvg {
       stroke: orange;
       position: absolute;
-      margin: auto;
+      width: 150px;
+      height: 150px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       z-index: -1;
+
+      @include mobile {
+        width: 100px;
+        height: 100px;
+      }
     }
 
     form {
@@ -80,25 +96,48 @@
 
       input,
       textarea {
-        padding: 20px;
+        padding: 15px;
         background-color: transparent;
         border: 1px solid white;
         color: white;
         border-radius: 5px;
+        font-size: 16px;
 
         @include mobile {
-          padding: 10px;
+          padding: 12px;
+          font-size: 14px;
         }
       }
 
       button {
-        padding: 20px;
+        padding: 15px;
         border: none;
         background-color: orange;
+        color: white;
         cursor: pointer;
         font-weight: 500;
+        font-size: 16px;
+
         @include mobile {
-          padding: 10px;
+          padding: 12px;
+          font-size: 14px;
+        }
+      }
+
+      // Feedback messages
+      .feedback {
+        font-size: 14px;
+        color: #ff4d4d; // Error color
+        @include mobile {
+          font-size: 12px;
+        }
+      }
+
+      .success {
+        font-size: 14px;
+        color: #4caf50; // Success color
+        @include mobile {
+          font-size: 12px;
         }
       }
     }

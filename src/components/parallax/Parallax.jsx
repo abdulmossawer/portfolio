@@ -10,22 +10,21 @@ const Parallax = ({ type }) => {
     offset: ["start start", "end start"],
   });
 
-  // Slow down the parallax effect
-  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "500%"]);
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  // Adjust these values to slow down the scroll effect
+  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]); // Slower scroll effect
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]); // Slower scroll effect
 
-  // Ensure the animation is going back and forth
   const sliderVariants = {
     initial: {
       x: 0,
     },
     animate: {
-      x: ["0%", "-220%"], // Defines the range for back and forth movement
+      x: ["0%", "-30%"], // Reduced range for slower movement
       transition: {
         repeat: Infinity,
-        repeatType: "mirror", // Makes the animation bounce back and forth
-        duration: 100, // Duration for one complete loop
-        ease: "easeInOut", // Smooth animation
+        repeatType: "mirror",
+        duration: 100, // Increased duration for slower animation
+        ease: "easeInOut", // Smooth transition
       },
     },
   };
@@ -44,7 +43,7 @@ const Parallax = ({ type }) => {
       <motion.h1 style={{ y: yText }}>
         {type === "skills" ? "Skills in Action" : "What We Did?"}
       </motion.h1>
-      <motion.div className="mountains"></motion.div>
+      <motion.div className="mountains" style={{ y: yBg }} />
       <motion.div
         className="planets"
         style={{
@@ -53,13 +52,13 @@ const Parallax = ({ type }) => {
             type === "services" ? "/planets.png" : "/sun.png"
           })`,
         }}
-      ></motion.div>
+      />
       <motion.div
         className="stars"
         variants={sliderVariants}
         initial="initial"
         animate="animate"
-      ></motion.div>
+      />
     </div>
   );
 };

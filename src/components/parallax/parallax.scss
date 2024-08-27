@@ -2,15 +2,18 @@
 
 .parallax {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background: linear-gradient(180deg, #111132, #0c0c1d); // Adjusted background for a smoother effect
 
   h1 {
     font-size: 100px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); // Added text shadow for better visibility
 
     @include mobile {
       font-size: 72px;
@@ -18,39 +21,42 @@
     }
   }
 
+  .mountains,
+  .planets,
+  .stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    transition: transform 0.5s ease-out; // Smooth transition for better effect
+  }
+
   .mountains {
     background-image: url("/mountains.png");
-    background-size: cover;
-    background-position: bottom;
-    width: 100%;
-    height: 100%;
-    position: absolute;
     z-index: 3;
+  }
 
-    @include mobile {
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-  }
   .planets {
-    background-size: cover;
-    background-position: bottom;
-    width: 100%;
-    height: 100%;
-    position: absolute;
+    background-image: url("/planets.png");
     z-index: 2;
-    @include mobile {
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
   }
+
   .stars {
     background-image: url("/stars.png");
-    background-size: cover;
-    background-position: bottom;
-    width: 100%;
-    height: 100%;
-    position: absolute;
     z-index: 1;
+  }
+
+  @include mobile {
+    h1 {
+      font-size: 48px;
+    }
+
+    .mountains,
+    .planets,
+    .stars {
+      background-size:contain; // Ensure images fit well on small screens
+    }
   }
 }

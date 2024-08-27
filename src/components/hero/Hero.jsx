@@ -74,7 +74,10 @@ const Hero = () => {
         BCA Graduate Student
       </motion.div>
       <div className="imageContainer">
-        {/* <img src="" alt="" /> */}
+       {/* <img src="/hero.png" alt="" />  */}
+
+        <img src="/hero (2).png" alt="" />  
+        {/* <img src="/hero (3).png" alt="" />  */}
       </div>
     </div>
   );

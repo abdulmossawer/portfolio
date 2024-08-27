@@ -31,6 +31,10 @@
     height: 100%;
     overflow: hidden;
 
+    @include mobile {
+      padding: 10px; /* Add padding for small screens */
+    }
+
     .wrapper {
       max-width: 1366px;
       height: 100%;
@@ -42,6 +46,8 @@
 
       @include mobile {
         flex-direction: column;
+        gap: 20px; /* Reduce gap for smaller screens */
+        width: 100%;
       }
 
       .mediaContainer {
@@ -50,7 +56,8 @@
 
         @include mobile {
           width: 100%;
-          max-height: 300px;
+          max-height: 300px; /* Limit max height for small screens */
+          height: auto; /* Adjust height based on content */
         }
 
         img, .video {
@@ -59,7 +66,7 @@
           object-fit: cover;
 
           @include mobile {
-            object-fit: contain;
+            object-fit: contain; /* Adjust object-fit for better visibility */
           }
         }
       }
@@ -81,7 +88,7 @@
           font-size: 72px;
 
           @include mobile {
-            font-size: 36px;
+            font-size: 36px; /* Adjust font size for small screens */
           }
         }
 
@@ -90,12 +97,13 @@
           font-size: 20px;
 
           @include mobile {
-            font-size: 16px;
+            font-size: 16px; /* Adjust font size for small screens */
           }
         }
 
         .buttons {
           display: flex;
+          flex-direction: column; /* Stack buttons vertically */
           gap: 10px;
 
           button {
@@ -103,11 +111,25 @@
             border: none;
             border-radius: 10px;
             padding: 10px;
-            width: 200px;
+            width: 100%; /* Make buttons full-width on small screens */
+            max-width: 200px; /* Limit max-width for buttons */
             cursor: pointer;
+            font-size: 16px; /* Adjust font size for better readability */
+            transition: background-color 0.3s ease; /* Smooth background color transition */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+
+            &:hover {
+              background-color: darkorange; /* Change background color on hover */
+            }
+
+            @include mobile {
+              padding: 12px; /* Increase padding for better touch interactions */
+              font-size: 18px; /* Adjust font size for readability on small screens */
+            }
           }
         }
       }
     }
   }
 }
+
