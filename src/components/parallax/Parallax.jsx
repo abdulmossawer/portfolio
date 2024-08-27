@@ -10,9 +10,25 @@ const Parallax = ({ type }) => {
     offset: ["start start", "end start"],
   });
 
-  // Slow down the parallax effect even more
-  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "150%"]);
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  // Slow down the parallax effect
+  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "500%"]);
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  // Ensure the animation is going back and forth
+  const sliderVariants = {
+    initial: {
+      x: 0,
+    },
+    animate: {
+      x: ["0%", "-220%"], // Defines the range for back and forth movement
+      transition: {
+        repeat: Infinity,
+        repeatType: "mirror", // Makes the animation bounce back and forth
+        duration: 100, // Duration for one complete loop
+        ease: "easeInOut", // Smooth animation
+      },
+    },
+  };
 
   return (
     <div
@@ -38,7 +54,12 @@ const Parallax = ({ type }) => {
           })`,
         }}
       ></motion.div>
-      <motion.div style={{ x: yBg }} className="stars"></motion.div>
+      <motion.div
+        className="stars"
+        variants={sliderVariants}
+        initial="initial"
+        animate="animate"
+      ></motion.div>
     </div>
   );
 };

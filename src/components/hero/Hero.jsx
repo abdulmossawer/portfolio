@@ -74,7 +74,7 @@ const Hero = () => {
         BCA Graduate Student
       </motion.div>
       <div className="imageContainer">
-        <img src="/hero.png" alt="" />
+        {/* <img src="" alt="" /> */}
       </div>
     </div>
   );
