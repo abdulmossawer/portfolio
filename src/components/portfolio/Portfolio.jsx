@@ -10,7 +10,7 @@ const items = [
     video: "/jobportal.mp4", // Add the video URL here
     desc: "Discover a seamless job search experience with our MERN-powered portal. Connecting job seekers and employers effortlessly, it’s built with MongoDB, Express.js, React, and Node.js for dynamic, real-time functionality. Simplify your job hunt with intuitive features and a user-friendly interface. Explore opportunities and take the next step in your career with ease.",
     github: "https://github.com/abdulmossawer/Job_Portal",
-    demo: "https://your-demo-link.com",
+    demo: "https://hire-haven.onrender.com/",
   },
 
   {
