@@ -68,7 +68,7 @@ const Contact = () => {
           <h2>Phone</h2>
           <span>8927469607</span>
         </motion.div>
-        <a href="/Grey Clean CV Resume Photo (1).pdf" download className="downloadButton">
+        <a href="/ABDUL MOSSAWER CV.pdf" download className="downloadButton">
           Download Resume
         </a>
       </motion.div>
